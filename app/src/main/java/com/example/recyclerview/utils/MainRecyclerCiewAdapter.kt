@@ -1,14 +1,19 @@
 package com.example.recyclerview.utils
 
 import android.content.Context
+import android.content.Intent
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.recyclerview.R
+import com.example.recyclerview.pages.MovieDetails
 
 class MainRecyclerViewAdapter
     (private val allCategory: List<AllCategories>) : MovieAdapter.OnMovieClickListener,
@@ -48,9 +53,20 @@ class MainRecyclerViewAdapter
         }
     }
 
-    override fun OnItemClick(movieID: String, context: Context) {
-        Toast.makeText(context, "Titulo seleccionado: ${movieID}", Toast.LENGTH_LONG).show()
+    override fun OnItemClick(movie: MovieData, context: Context) {
+        val intent = Intent(context, MovieDetails::class.java)
+        intent.putExtra("movieId", movie.id.toString())
+        intent.putExtra("posterImage", movie.poster_path)
+        intent.putExtra("movieTitle", movie.title)
+        intent.putExtra("releaseDate", movie.release_date)
+        intent.putExtra("overView", movie.overview)
+        intent.putExtra("voteAverage", movie.vote_average.toString())
+        context.startActivity(intent)
+
+        //Toast.makeText(context, "Titulo seleccionado: ${movieID}", Toast.LENGTH_LONG).show()
     }
+
+
 
 
 }

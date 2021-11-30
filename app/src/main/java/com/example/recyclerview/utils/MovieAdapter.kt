@@ -2,19 +2,21 @@ package com.example.recyclerview.utils
 
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.recyclerview.R
+import com.example.recyclerview.pages.MovieDetails
 import com.squareup.picasso.Picasso
 
 
 class MovieAdapter(val movieList: List<MovieData>, val listener: OnMovieClickListener) : RecyclerView.Adapter<MovieAdapter.MoviesViewHolder>(){
 
     interface OnMovieClickListener{
-        fun OnItemClick(movieID: String, context: Context)
+        fun OnItemClick(movie: MovieData, context: Context)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MoviesViewHolder {
@@ -27,7 +29,7 @@ class MovieAdapter(val movieList: List<MovieData>, val listener: OnMovieClickLis
     }
 
     override fun getItemCount(): Int {
-        return movieList.size
+        return 10
     }
 
 
@@ -37,7 +39,8 @@ class MovieAdapter(val movieList: List<MovieData>, val listener: OnMovieClickLis
         fun bindInfo(movie: MovieData){
            // title.text = movie.title
             itemView.setOnClickListener{
-                listener.OnItemClick(movie.id.toString(), image.context)
+                //listener.OnItemClick(movie.id.toString(), image.context)
+                 listener.OnItemClick(movie, image.context)
             }
             Picasso.get().load("https://image.tmdb.org/t/p/w500${movie.poster_path}").into(image)
 

@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">RecyclerView</string>
+    <string name="holiday">Para entrar en espiritu navideño</string>
+    <string name="providers">Actualmente puedes ves esta pelicula en: </string>
 </resources>

@@ -1,19 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/parentA"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parentA"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:background="#181D31">
+    android:background="#181D31"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+    <include layout="@layout/mytoolbar"/>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="10dp"
+        app:cardBackgroundColor="#C9182B"
+        app:cardCornerRadius="10dp"
+
+        >
+        <org.imaginativeworld.whynotimagecarousel.ImageCarousel
+            android:id="@+id/carouselMovies"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:autoPlay="true"
+            app:autoPlayDelay="4000"
+            app:imageScaleType="fitCenter"
+            android:layout_gravity="center"
+
+            />
+        <RelativeLayout
+            android:id="@+id/holidays"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:text="@string/holiday"
+                android:fontFamily="@font/asap_medium"
+                android:textColor="@color/white"
+                android:textSize="18dp"
+                android:layout_centerInParent="true"
+                android:layout_alignParentBottom="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp">
+
+            </TextView>
+
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="100dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/nieve1">
+
+            </ImageView>
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="100dp"
+                android:layout_alignParentEnd="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/nieveop">
+
+            </ImageView>
+
+            <ImageView
+                android:layout_alignParentBottom="true"
+                android:src="@drawable/mypino2"
+                android:layout_width="80dp"
+                android:layout_height="80dp">
+
+            </ImageView>
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:src="@drawable/mypino">
+
+            </ImageView>
+
+        </RelativeLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/parent_RecyclerView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        >
+        android:paddingTop="10dp">
 
     </androidx.recyclerview.widget.RecyclerView>
 
-</RelativeLayout>
+</LinearLayout>

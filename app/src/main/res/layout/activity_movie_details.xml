@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#181D31"
+    android:orientation="vertical"
+    tools:context=".pages.MovieDetails">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="650dp">
+
+            <ImageView
+                android:id="@+id/movieImage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"></ImageView>
+
+        </LinearLayout>
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:elevation="8dp"
+            app:cardBackgroundColor="#181D31"
+            app:cardCornerRadius="15dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/movieTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/asap"
+                    android:paddingStart="10dp"
+                    android:text="Titutlo pelicula"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"></TextView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="10dp">
+
+                    <TextView
+                        android:id="@+id/releaseDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/asap"
+                        android:paddingStart="10dp"
+                        android:text="fecha salida"
+                        android:textColor="#9AFFFFFF"
+                        android:textSize="15sp"></TextView>
+
+                    <TextView
+                        android:id="@+id/voteAverage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/asap"
+                        android:paddingStart="20dp"
+                        android:text="voto promedio"
+                        android:textColor="#9AFFFFFF"
+                        android:textSize="15sp"></TextView>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/movieOverview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/asap"
+                    android:paddingStart="10dp"
+                    android:text="Movie overiew"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"></TextView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/asap"
+                    android:paddingStart="10dp"
+                    android:paddingTop="10dp"
+                    android:text="@string/providers"
+                    android:textColor="@color/white"
+                    android:textSize="18sp">
+
+                </TextView>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingStart="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="5dp">
+
+
+                    <ImageView
+                        android:id="@+id/provider1"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+
+                        ></ImageView>
+
+
+                    <TextView
+                        android:id="@+id/noProviders"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/asap"
+                        android:text="¡Vaya, parece que tienes que salir de casa!"
+                        android:visibility="invisible"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"></TextView>
+
+
+                </RelativeLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+
+</ScrollView>

@@ -12,13 +12,14 @@
         android:orientation="vertical">
 
         <TextView
+            android:paddingStart="15dp"
             android:id="@+id/parent_item_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/asap_medium"
             android:text="Textto Prueba"
             android:textColor="@color/white"
-            android:textSize="26sp" />
+            android:textSize="24sp" />
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/moviesRecyclerView"
             android:layout_width="match_parent"
