@@ -1,5 +1,6 @@
 package com.example.recyclerview.pages
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -27,6 +28,15 @@ class MovieDetails() :
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_movie_details)
 
+        val watchTrailer: TextView = findViewById(R.id.trailer)
+        watchTrailer.setOnClickListener {
+            val launchIntent: Intent? = packageManager.getLaunchIntentForPackage("com.google.android.youtube")
+            if(launchIntent != null){
+                startActivity(launchIntent)
+            }else{
+                Toast.makeText(this,"No paquete", Toast.LENGTH_LONG).show()
+            }
+        }
 
         //Log.d("Lista", "Link de provider: ${providerList}")
         val posterMovie: ImageView = findViewById(R.id.movieImage)

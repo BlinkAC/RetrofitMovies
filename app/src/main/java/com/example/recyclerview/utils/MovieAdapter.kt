@@ -13,11 +13,8 @@ import com.example.recyclerview.pages.MovieDetails
 import com.squareup.picasso.Picasso
 
 
-class MovieAdapter(val movieList: List<MovieData>, val listener: OnMovieClickListener) : RecyclerView.Adapter<MovieAdapter.MoviesViewHolder>(){
+class MovieAdapter(val movieList: List<MovieData>, val listener: ClickListener) : RecyclerView.Adapter<MovieAdapter.MoviesViewHolder>(){
 
-    interface OnMovieClickListener{
-        fun OnItemClick(movie: MovieData, context: Context)
-    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MoviesViewHolder {
         val view: LayoutInflater = LayoutInflater.from(parent.context)

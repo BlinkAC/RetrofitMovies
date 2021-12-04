@@ -12,17 +12,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RecyclerView">
         <activity
-            android:name=".pages.SplashScreen"
-            android:exported="true"></activity>
+            android:name=".pages.SearchPage"
+            android:exported="true">
 
+        </activity>
+        <activity
+            android:name=".pages.SplashScreen"
+            android:exported="true" />
         <activity
             android:name=".pages.MovieDetails"
             android:exported="true" />
-
         <activity
             android:name=".MainActivity"
-            android:exported="true"
-            >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -16,8 +16,9 @@ import com.example.recyclerview.R
 import com.example.recyclerview.pages.MovieDetails
 
 class MainRecyclerViewAdapter
-    (private val allCategory: List<AllCategories>) : MovieAdapter.OnMovieClickListener,
+    (private val allCategory: List<AllCategories>) : ClickListener,
     RecyclerView.Adapter<MainRecyclerViewAdapter.MainViewHolder>() {
+
     private var childRecyclerView: RecyclerView? = null
     class MainViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var categoryTitle: TextView
