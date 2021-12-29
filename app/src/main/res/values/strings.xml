@@ -3,4 +3,12 @@
     <string name="holiday">Para entrar en espiritu navideño</string>
     <string name="providers">Actualmente puedes ves esta pelicula en: </string>
     <string name="trailes"><u>Ver trailer</u></string>
+    <string name="rate"><u>Calificar pelicula</u></string>
+    <string name="login">Para hacer uso de algunas funciones es necesario que inicies sesión
+    con tu cuenta en TMDB, una vez hayas iniciado sesion, vuelve aquí y presiona el boton
+    "Ya he iniciado sesión"</string>
+    <string name="calificacion">Calificación: </string>
+    <string name="mas">+</string>
+    <string name="menos">-</string>
+    <string name="calificar">Calificar pelicula</string>
 </resources>

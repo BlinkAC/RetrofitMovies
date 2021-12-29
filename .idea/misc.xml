@@ -6,12 +6,15 @@
         <entry key="..\:/Users/Edgar Antonio/AndroidStudioProjects/RecyclerView/app/src/main/res/drawable-anydpi/drawer.xml" value="0.2203125" />
         <entry key="..\:/Users/Edgar Antonio/AndroidStudioProjects/RecyclerView/app/src/main/res/drawable/drawer.xml" value="0.2203125" />
         <entry key="..\:/Users/Edgar Antonio/AndroidStudioProjects/RecyclerView/app/src/main/res/drawable/ic_candy_cane.xml" value="0.18611111111111112" />
+        <entry key="..\:/Users/Edgar Antonio/AndroidStudioProjects/RecyclerView/app/src/main/res/drawable/ic_logo2.xml" value="0.2203125" />
         <entry key="..\:/Users/Edgar Antonio/AndroidStudioProjects/RecyclerView/app/src/main/res/drawable/ic_rectangulo.xml" value="0.2203125" />
         <entry key="..\:/Users/Edgar Antonio/AndroidStudioProjects/RecyclerView/app/src/main/res/drawable/search.xml" value="1.1916666666666667" />
         <entry key="..\:/Users/Edgar Antonio/AndroidStudioProjects/RecyclerView/app/src/main/res/drawable/search777.xml" value="1.1916666666666667" />
+        <entry key="..\:/Users/Edgar Antonio/AndroidStudioProjects/RecyclerView/app/src/main/res/layout/activity_login_page.xml" value="0.22" />
         <entry key="..\:/Users/Edgar Antonio/AndroidStudioProjects/RecyclerView/app/src/main/res/layout/activity_main.xml" value="0.22" />
-        <entry key="..\:/Users/Edgar Antonio/AndroidStudioProjects/RecyclerView/app/src/main/res/layout/activity_movie_details.xml" value="0.1" />
-        <entry key="..\:/Users/Edgar Antonio/AndroidStudioProjects/RecyclerView/app/src/main/res/layout/activity_search_page.xml" value="0.5" />
+        <entry key="..\:/Users/Edgar Antonio/AndroidStudioProjects/RecyclerView/app/src/main/res/layout/activity_movie_details.xml" value="0.5" />
+        <entry key="..\:/Users/Edgar Antonio/AndroidStudioProjects/RecyclerView/app/src/main/res/layout/activity_rate_movie_page.xml" value="0.1" />
+        <entry key="..\:/Users/Edgar Antonio/AndroidStudioProjects/RecyclerView/app/src/main/res/layout/activity_search_page.xml" value="0.25" />
         <entry key="..\:/Users/Edgar Antonio/AndroidStudioProjects/RecyclerView/app/src/main/res/layout/activity_splash_screen.xml" value="0.5" />
         <entry key="..\:/Users/Edgar Antonio/AndroidStudioProjects/RecyclerView/app/src/main/res/layout/card_layout.xml" value="0.1" />
         <entry key="..\:/Users/Edgar Antonio/AndroidStudioProjects/RecyclerView/app/src/main/res/layout/card_search.xml" value="0.1" />

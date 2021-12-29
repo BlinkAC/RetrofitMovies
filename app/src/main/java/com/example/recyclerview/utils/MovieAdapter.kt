@@ -13,7 +13,8 @@ import com.example.recyclerview.pages.MovieDetails
 import com.squareup.picasso.Picasso
 
 
-class MovieAdapter(val movieList: List<MovieData>, val listener: ClickListener) : RecyclerView.Adapter<MovieAdapter.MoviesViewHolder>(){
+class MovieAdapter(val movieList: List<MovieData>, val listener: ClickListener) :
+    RecyclerView.Adapter<MovieAdapter.MoviesViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MoviesViewHolder {
@@ -30,15 +31,16 @@ class MovieAdapter(val movieList: List<MovieData>, val listener: ClickListener) 
     }
 
 
-    inner class MoviesViewHolder (itemView: View): RecyclerView.ViewHolder(itemView){
+    inner class MoviesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         //var title: TextView = itemView.findViewById(R.id.title)
         var image: ImageView = itemView.findViewById(R.id.image)
-        fun bindInfo(movie: MovieData){
-           // title.text = movie.title
-            itemView.setOnClickListener{
+        fun bindInfo(movie: MovieData) {
+            // title.text = movie.title
+            itemView.setOnClickListener {
                 //listener.OnItemClick(movie.id.toString(), image.context)
-                 listener.OnItemClick(movie, image.context)
+                listener.OnItemClick(movie, image.context)
             }
+
             Picasso.get().load("https://image.tmdb.org/t/p/w500${movie.poster_path}").into(image)
 
 

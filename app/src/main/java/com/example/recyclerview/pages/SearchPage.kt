@@ -10,53 +10,69 @@ import android.view.View
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
-import android.widget.Toast
+import android.widget.ProgressBar
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.recyclerview.R
-import com.example.recyclerview.services.API_interface
+import com.example.recyclerview.services.API_service
 import com.example.recyclerview.utils.*
-import org.imaginativeworld.whynotimagecarousel.model.CarouselItem
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+import kotlinx.coroutines.InternalCoroutinesApi
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 
-
-//val BASE_URL = "https://api.themoviedb.org/"
 
 class SearchPage :
     ClickListener,
     AppCompatActivity() {
-    lateinit var ed_text: EditText
-    lateinit var listOfSearchedMovies: RecyclerView
-    var searchedQuery: ArrayList<MovieData> = ArrayList()
-    var indexPage = 1
+    private lateinit var editableText: EditText
+    private lateinit var viewModel: MovieViewModel
+    private lateinit var movieAdapter: TercerAdapter
+
+    @InternalCoroutinesApi
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search_page)
+        editableText = findViewById(R.id.buscarPeli)
 
-        ed_text = findViewById(R.id.buscarPeli)
-        ed_text.setOnKeyListener(View.OnKeyListener { _, keyCode, event ->
+
+        editableText.setOnKeyListener(View.OnKeyListener { _, keyCode, event ->
             if (keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_DOWN) {
+
                 //Perform Code
-                var query: String = ed_text.getText().toString()
-                if(searchedQuery.isEmpty()){
-                    setRecyclerSearch(query)
+                val queryTitle: String = editableText.text.toString()
+                viewModel = ViewModelProvider(
+                    this,
+                    MovieVielModelFactory(API_service.getApi(), queryTitle)
+                )[MovieViewModel::class.java]
+
+                movieAdapter = TercerAdapter(this)
+
+
+                lifecycleScope.launch {
+                    viewModel.movieList.collectLatest {
+                        movieAdapter.submitData(it)
+                    }
                 }
 
-                ed_text.getText().clear()
+
+                bindUi()
+
+
+                editableText.text.clear()
                 hideKeyboard()
-                Toast.makeText(this, "${query}", Toast.LENGTH_SHORT).show()
+
                 return@OnKeyListener true
             }
             false
         })
 
 
+
     }
+
+
 
     private fun hideKeyboard() {
         val view = this.currentFocus
@@ -67,51 +83,15 @@ class SearchPage :
         window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN)
     }
 
-    private fun setRecyclerSearch(query: String) {
 
-        val retrofitBuilder = Retrofit.Builder()
-            .addConverterFactory(GsonConverterFactory.create())
-            .baseUrl(com.example.recyclerview.BASE_URL)
-            .build()
-            .create(API_interface::class.java)
-        val retrofitData = retrofitBuilder.searchMovies(query)
-        retrofitData.enqueue(object : Callback<MoviesResponse?> {
-            override fun onResponse(
-                call: Call<MoviesResponse?>,
-                response: Response<MoviesResponse?>
-            ) {
-                if (response.isSuccessful) {
-                    //searchedQuery.clear()
-                    val perro = response.body()!!.results.size
-
-                    for(i in 0 until perro)
-                    searchedQuery.add(response.body()!!.results[i])
-
-                }
-
-                Log.d("Respuesta", "Lista respuesta ${searchedQuery.size} ")
-                //index=index+1
-                setMoviesRecyclerView(searchedQuery)
-            }
-
-            override fun onFailure(call: Call<MoviesResponse?>, t: Throwable) {
-                Toast.makeText(this@SearchPage, "${t.message}", Toast.LENGTH_SHORT).show()
-            }
-        })
-    }
-
-    private fun setMoviesRecyclerView(searchedQuery: ArrayList<MovieData>) {
-        listOfSearchedMovies = findViewById(R.id.searcheMovies)
-        listOfSearchedMovies.apply {
-            val layoutManager: RecyclerView.LayoutManager =
-                GridLayoutManager(listOfSearchedMovies.context, 2)
-            listOfSearchedMovies.layoutManager = layoutManager
-            adapter = SearchMovieAdapter(searchedQuery, this@SearchPage)
-
-
+    private fun bindUi() {
+        val rv = findViewById<RecyclerView>(R.id.searcheMovies)
+        rv.apply {
+            layoutManager = GridLayoutManager(context, 2)
+            setHasFixedSize(true)
+            adapter = movieAdapter
         }
     }
-
 
     override fun OnItemClick(movie: MovieData, context: Context) {
         val intent = Intent(context, MovieDetails::class.java)
@@ -123,7 +103,6 @@ class SearchPage :
         intent.putExtra("voteAverage", movie.vote_average.toString())
         context.startActivity(intent)
 
-        //Toast.makeText(context, "Titulo seleccionado: ${movie.title}", Toast.LENGTH_LONG).show()
     }
 
 

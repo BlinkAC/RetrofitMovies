@@ -30,6 +30,7 @@
     </androidx.cardview.widget.CardView>
 
 
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/searcheMovies"
         android:layout_width="wrap_content"
@@ -37,4 +38,11 @@
         android:layout_gravity="center"
         android:padding="15dp">
     </androidx.recyclerview.widget.RecyclerView>
+
+    <ProgressBar
+        android:id="@+id/searchProgress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        ></ProgressBar>
+
 </LinearLayout>

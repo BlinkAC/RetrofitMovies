@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#181D31"
+    tools:context=".pages.RateMoviePage">
+
+    <LinearLayout
+        android:id="@+id/linearRate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:elevation="5dp"
+                app:cardBackgroundColor="#fff"
+                app:cardCornerRadius="12dp">
+
+                <ImageView
+                    android:id="@+id/ratePoster"
+                    android:layout_width="200dp"
+                    android:layout_height="300dp"
+                    android:scaleType="fitXY">
+
+                </ImageView>
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                android:paddingStart="15dp"
+                android:paddingEnd="10dp">
+
+                <TextView
+                    android:id="@+id/rateTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:justificationMode="inter_word"
+                    android:text="Titulo pelicula"
+                    android:fontFamily="@font/asap_medium"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"></TextView>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    >
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginEnd="5dp"
+                        android:src="@drawable/calendar">
+
+                    </ImageView>
+                    <TextView
+                        android:id="@+id/rateDate"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Fecha lanzamiento"
+                        android:textColor="#9AFFFFFF"
+                        android:fontFamily="@font/asap_medium"
+                        android:textSize="15sp">
+                    </TextView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp"
+                    >
+
+                    <ImageView
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:src="@drawable/star"
+                        android:layout_gravity="center"
+                        android:layout_marginEnd="5dp"
+                        >
+                    </ImageView>
+
+                    <TextView
+                        android:id="@+id/rateAverage"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="calificacion"
+                        android:textColor="#9AFFFFFF"
+                        android:fontFamily="@font/asap_medium"
+                        android:textSize="15sp">
+
+                    </TextView>
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/rateOverview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/app_name"
+                android:textColor="#9AFFFFFF"
+                android:textSize="20sp"
+                android:fontFamily="@font/asap_medium"
+                android:justificationMode="inter_word">
+
+            </TextView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/calificacion"
+                    android:textColor="#3951F6"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/asap_medium"
+                    android:layout_marginEnd="10dp">
+                </TextView>
+
+
+                <Button
+                    android:id="@+id/minusButton"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:text="@string/menos"
+                    android:textSize="25sp"
+                    android:textColor="#FF1791D5"
+                    android:backgroundTint="#FFFFFF">
+                </Button>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    app:cardCornerRadius="12dp">
+                    <TextView
+                        android:id="@+id/incrementalCounter"
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="@string/mas"
+                        android:textSize="25sp"
+                        android:textColor="@color/black">
+                    </TextView>
+                </androidx.cardview.widget.CardView>
+
+
+                <Button
+                    android:id="@+id/plusButton"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:text="@string/mas"
+                    android:textSize="25sp"
+                    android:textColor="#FF1791D5"
+                    android:backgroundTint="#FFFFFF">
+                </Button>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/submitRate"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginEnd="50dp"
+                android:backgroundTint="@color/white"
+                android:text="@string/calificar"
+                android:textColor="#FF1791D5"
+                android:textAllCaps="false"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                ></Button>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
